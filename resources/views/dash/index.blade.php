@@ -22,12 +22,4 @@
         <li>course 4</l1>
     </ul
 
-
-    {{-- @foreach($courses as $course)
-        <div>
-            <h2>{{ $course->title }}</h2>
-            <a href='/courses/edit/{{$course->id}}'>Edit</a><br>
-        </div>
-    @endforeach --}}
-
 @stop

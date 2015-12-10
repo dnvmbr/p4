@@ -22,6 +22,6 @@ class Course extends Model
     }
 
     public function requirements(){
-        return $this->hasMany('\App\Requirement');
+        return $this->belongsToMany('\App\Requirement');
     }
 }
