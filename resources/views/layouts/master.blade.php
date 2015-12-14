@@ -38,16 +38,16 @@
         </a> --}}
         <h1>Grad Planner</h1>
         <nav>
-                {{-- @if(Auth::check()) --}}
+                @if(Auth::check())
                     <a class='btn btn-danger' role='button' href='/'>View Status</a>
-                    <a class='btn btn-danger' role='button' href='/courses'> View All Courses</a>
-                    <a class='btn btn-danger' role='button' href='/courses/create'> Add a Course</a>
+                    <a class='btn btn-danger' role='button' href='/courses'>View All Courses</a>
+                    <a class='btn btn-danger' role='button' href='/courses/create'>Add a Course</a>
                     <a class='btn btn-danger' role='button' href='/logout'>Log out</a>
-                {{-- @else
-                    <li><a href='/'>Home</a></li>
-                    <li><a href='/login'>Log in</a></li>
-                    <li><a href='/register'>Register</a></li>
-                @endif --}}
+                @else
+                <a class='btn btn-danger' role='button' href='/'>Home</a>
+                <a class='btn btn-danger' role='button' href='/login'>Login</a>
+                <a class='btn btn-danger' role='button' href='/register'>Register</a>
+                @endif
         </nav>
 
     </header>

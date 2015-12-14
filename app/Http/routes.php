@@ -47,5 +47,45 @@ Route::get('/debug', function() {
 
 Route::get('/', 'DashController@getIndex');
 Route::get('/courses', 'CourseController@getIndex');
-Route::get('/courses/create', 'CourseController@getCreate');
-Route::get('/courses/edit', 'CourseController@getEdit');
+// Route::get('/courses/create',[
+//     'middleware' => 'auth',
+//     'users' => 'CourseController@getCreate'
+// ]);
+//
+// Route::get('/courses/edit',[
+//     'middleware' => 'auth',
+//     'users' => 'CourseController@getEdit'
+// ]);
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/courses/create', 'CourseController@getCreate');
+    Route::post('/courses/create', 'CourseController@getPost');
+
+    Route::get('/courses/edit', 'CourseController@getEdit');
+    Route::post('/courses/edit', 'CourseController@postEdit');
+});
+
+# Show login form
+Route::get('/login', 'Auth\AuthController@getLogin');
+# Process login form
+Route::post('/login', 'Auth\AuthController@postLogin');
+# Process logout
+Route::get('/logout', 'Auth\AuthController@getLogout');
+# Show registration form
+Route::get('/register', 'Auth\AuthController@getRegister');
+# Process registration form
+Route::post('/register', 'Auth\AuthController@postRegister');
+Route::get('/confirm-login-worked', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user) {
+        echo 'You are logged in.';
+        dump($user->toArray());
+    } else {
+        echo 'You are not logged in.';
+    }
+
+    return;
+
+});
