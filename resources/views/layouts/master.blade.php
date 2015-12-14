@@ -55,7 +55,7 @@
 
     <section>
         {{-- Main page content will be yielded here --}}
-        <h1>@yield('title')</h1>
+        <!-- <h1>@yield('title')</h1> -->
         @yield('content')
     </section>
 

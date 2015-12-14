@@ -16,8 +16,9 @@ class DashController extends Controller
     */
     public function getIndex(Request $request)
     {
-        $courses = \App\Course::where('course_name','=','CSCI E-15 Dynamic Web Applications')->first();
-        return view('dash.index');
+        $courses = \App\Course::where('course_name','=','CSCI E-15 Dynamic Web Applications')->with('requirements')->first();
+        return view('dash.index')
+        ->with('courses', $courses);
     }
 
     /**

@@ -13,6 +13,9 @@ class CourseRequirementTableSeeder extends Seeder
     {
         $courses =[
             'CSCI E-15 Dynamic Web Applications' => ['Area of Concentration','Upper Level Courses'],
+            'DGMD E-42 Making the Short Film: Innovations and Practices for the Digital Age' => ['On Campus','Upper Level Courses'],
+            'EXPO E-25 Academic Writing and Critical Reading' => ['Harvard Instructor','Expo-25'],
+
         ];
 
 
@@ -25,7 +28,7 @@ class CourseRequirementTableSeeder extends Seeder
             foreach($requirements as $requirement_name) {
 
                 $requirement = \App\Requirement::where('requirement_name','LIKE',$requirement_name)->first();
-                
+
                 # Connect this req to this course
                 $course->requirements()->save($requirement);
             }
