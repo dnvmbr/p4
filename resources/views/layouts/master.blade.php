@@ -44,9 +44,9 @@
                     <a class='btn btn-danger' role='button' href='/courses/create'>Add a Course</a>
                     <a class='btn btn-danger' role='button' href='/logout'>Log out</a>
                 @else
-                <a class='btn btn-danger' role='button' href='/'>Home</a>
-                <a class='btn btn-danger' role='button' href='/login'>Login</a>
-                <a class='btn btn-danger' role='button' href='/register'>Register</a>
+                    <a class='btn btn-danger' role='button' href='/'>Home</a>
+                    <a class='btn btn-danger' role='button' href='/login'>Login</a>
+                    <a class='btn btn-danger' role='button' href='/register'>Register</a>
                 @endif
         </nav>
 
