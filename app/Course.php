@@ -21,7 +21,11 @@ class Course extends Model
 
     }
 
-    public function requirements(){
+    public function requirements() {
         return $this->belongsToMany('\App\Requirement');
     }
+    public function users() {
+        return $this->belongsToMany('\App\User')->withTimestamps();
+    }
+
 }
