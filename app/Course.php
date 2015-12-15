@@ -12,7 +12,7 @@ class Course extends Model
         $courses = $this->orderBy('course_name','ASC')->get();
 
         $coursesForCheckboxes = [];
-
+        
         foreach($courses as $course) {
             $coursesForCheckboxes[$course['id']] = $course;
         }

@@ -60,15 +60,15 @@ class CourseController extends Controller
 
         $course->save();
 
-        // # Add the tags
-        if($request->requirements) {
-            $requirements = $request->requirement;
-        }
-        else {
-            $requirements = [];
-        }
-        $course->requirements()->sync($requirements);
-
+        // // # Add the tags
+        // if($request->requirements) {
+        //     $requirements = $request->requirement;
+        // }
+        // else {
+        //     $requirements = [];
+        // }
+        // $course->requirements()->sync($requirements);
+        //
         # Done
         \Session::flash('flash_message','Your book was added!');
         return redirect('/courses');
