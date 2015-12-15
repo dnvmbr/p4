@@ -39,10 +39,10 @@
         </div>
 
         <div class='form-group'>
-            <label for='credit_hours'>Credit Hours: </label>
-              <label><input type="radio" name="credit_hours" value="2"> 2  </label>
+            <label for='course_hours'>Credit Hours: </label>
+              <label><input type="radio" name="course_hours" value="2"> 2  </label>
 
-              <label><input type="radio" name="credit_hours" value="4" checked> 4 </label>
+              <label><input type="radio" name="course_hours" value="4" checked> 4 </label>
         </div>
 
         <div class='form-group'>

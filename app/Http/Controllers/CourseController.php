@@ -36,6 +36,47 @@ class CourseController extends Controller
     }
 
     /**
+     * Responds to requests to POST /courses/create
+     */
+    public function getPost(Request $request) {
+
+        // $this->validate(
+        //     $request,
+        //     [
+        //         'title' => 'required|min:5',
+        //         'cover' => 'required|url',
+        //         'published' => 'required|min:4',
+        //       ]
+        // );
+
+        # Enter book into the database
+        $course = new \App\Course();
+        $course->course_name = $request->course_name;
+        $course->crn = $request->crn;
+        $course->course_hours = $request->course_hours;
+
+        // $course->user_id = \Auth::id(); # <--- NEW LINE
+        // $course->course_link = $request->purchase_link;
+
+        $course->save();
+
+        // # Add the tags
+        if($request->requirements) {
+            $requirements = $request->requirement;
+        }
+        else {
+            $requirements = [];
+        }
+        $course->requirements()->sync($requirements);
+
+        # Done
+        \Session::flash('flash_message','Your book was added!');
+        return redirect('/courses');
+
+    }
+
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
