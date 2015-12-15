@@ -1,17 +1,14 @@
 @extends('layouts.master')
 
+
 @section('title')
-    List Courses
-@@stop
-
-
-@section('content')
-    @if(!isset($title))
-        You have not specified a course
-    @else
-        <h1>Show course: {{ $title }}</h1>
-    @endif
+    Show Course
 @stop
 
-@section('body')
-@@stop
+@section('content')
+    @if($title)
+        <h1>Show course: {{ $title }}</h1>
+    @else
+        <h1>No course chosen</h1>
+    @endif
+@stop

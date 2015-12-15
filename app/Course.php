@@ -28,4 +28,9 @@ class Course extends Model
         return $this->belongsToMany('\App\User')->withTimestamps();
     }
 
+
+    // public function getIndex() {
+    //     $courses = \App\Course::all();
+    //     return view('courses.index')->with('courses',$courses);
+    // }
 }

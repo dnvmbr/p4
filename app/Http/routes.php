@@ -47,15 +47,6 @@ Route::get('/debug', function() {
 
 Route::get('/', 'DashController@getIndex');
 Route::get('/courses', 'CourseController@getIndex');
-// Route::get('/courses/create',[
-//     'middleware' => 'auth',
-//     'users' => 'CourseController@getCreate'
-// ]);
-//
-// Route::get('/courses/edit',[
-//     'middleware' => 'auth',
-//     'users' => 'CourseController@getEdit'
-// ]);
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/courses/create', 'CourseController@getCreate');
     Route::post('/courses/create', 'CourseController@getPost');
@@ -63,6 +54,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/courses/edit', 'CourseController@getEdit');
     Route::post('/courses/edit', 'CourseController@postEdit');
 });
+Route::get('/courses/show/{title?}', 'CourseController@getShow');
 
 # Show login form
 Route::get('/login', 'Auth\AuthController@getLogin');

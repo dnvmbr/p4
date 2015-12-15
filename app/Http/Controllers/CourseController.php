@@ -16,9 +16,9 @@ class CourseController extends Controller
      */
     public function getIndex(Request $request)
     {
-        // $courseModel = new \App\Courses();
-        // $courses_for_checkbox = $courseModel->getCoursesForCheckboxes();
-        return view('courses.index');
+        $courses = \App\Course::where('course_name','=','CSCI E-15 Dynamic Web Applications')->with('requirements')->first();
+        return view('courses.index')
+        ->with('courses', $courses);
     }
 
     /**
@@ -26,9 +26,13 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
-        //
+        $requirementModel = new \App\Requirement();
+        $requirements_for_checkbox = $requirementModel->getRequirementsForCheckboxes();
+
+        return view('courses.create')
+        ->with('requirements_for_checkbox',$requirements_for_checkbox);
     }
 
     /**
@@ -48,9 +52,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($title = null)
     {
-        //
+        return view('courses.show')->with('title', $title);
     }
 
     /**
