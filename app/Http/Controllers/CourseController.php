@@ -67,7 +67,7 @@ class CourseController extends Controller
         else {
             $requirements = [];
         }
-        $course->requirements()->attach($requirements);
+        $course->requirements()->sync($requirements);
 
         # Done
         \Session::flash('flash_message','Your book was added!');
@@ -95,9 +95,9 @@ class CourseController extends Controller
      */
     public function getShow($title = null)
     {
-        // $course = \App\Course::with('course_id')->find('id');
-        // dd($course);
-        return view('courses.show')->with('title', $title);
+        $thisCourse = \App\Course::where('crn','=',$title);
+        return view('courses.show')->with('title', $title)
+        ->with('thisCourse', $thisCourse);
     }
 
     /**

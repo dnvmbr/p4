@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDegreeUserTable extends Migration
+class CreateDegreeRequirementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreateDegreeUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('degree_user', function (Blueprint $table){
+        Schema::create('degree_requirement', function(Blueprint $table){
             $table->increments('id');
             $table->integer('degree_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('requirement_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('degree_id')
@@ -24,9 +24,9 @@ class CreateDegreeUserTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('user_id')
+            $table->foreign('requirement_id')
                 ->references('id')
-                ->on('users')
+                ->on('requirements')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -39,7 +39,7 @@ class CreateDegreeUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign('degree_id', 'user_id');
-        Schema::drop('degree_user');
+        Schema::dropForeign('degree_id', 'requirement_id');
+        Schema::drop('degree_requirement');
     }
 }

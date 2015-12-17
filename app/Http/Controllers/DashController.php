@@ -22,7 +22,6 @@ class DashController extends Controller
             $query->where('user_id', '=', \Auth::id());
         })->get();
         $requirements = \App\Requirement::all();
-        // dd($requirements);
         return view('dash.index')
         ->with('userCourses', $userCourses)
         ->with('requirements', $requirements);

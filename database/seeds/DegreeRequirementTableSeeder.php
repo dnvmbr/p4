@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class StudentTableSeeder extends Seeder
+class DegreeRequirementTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,13 +11,12 @@ class StudentTableSeeder extends Seeder
      */
     public function run()
     {
-        $degree_id = \App\Degree::where('degree_name','=','Computer Science')->pluck('id');
-        DB::table('users')->insert([
+        DB::table('degree_requirement')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'student_name' => 'John Harvard',
-            'student_email' => 'john@harvard.edu',
-            'degree_id' => $degree_id,
+            'degree_id' => '1',
+            'requirement_id' => '1',
         ]);
+
     }
 }

@@ -17,6 +17,8 @@ class CreateCoursesTable extends Migration
             $table->string('course_name');
             $table->integer('crn');
             $table->integer('course_hours');
+            $table->string('harvard_url');
+
             $table->timestamps();
         });
     }
