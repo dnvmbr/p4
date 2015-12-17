@@ -14,7 +14,10 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         \View::composer('*', function($view) {
-            $view->with('user', \Auth::user());
+            $allCourses = \App\Course::all();
+            $view->with('user', \Auth::user())
+            ->with('allCourses', $allCourses);
+
         });
     }
 

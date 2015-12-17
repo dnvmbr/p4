@@ -1,4 +1,4 @@
-@extends('layouts.master')
+{{-- @extends('layouts.master')
 
 @section('title')
     List Courses
@@ -6,12 +6,12 @@
 
 
 @section('content')
-    @if(!isset($title))
-        You have not specified a course
-    @else
-        <h1>Show course: {{ $title }}</h1>
-    @endif
+<div class='form-group'>
+    @foreach($courses as $course)
+    <label><input type='checkbox' name='requirements[]' value='{{$requirement_id}}'> {{ $requirement['requirement_name'] }}</label><br>
+    @endforeach
+</div>
 @stop
 
 @section('body')
-@@stop
+@@stop --}}

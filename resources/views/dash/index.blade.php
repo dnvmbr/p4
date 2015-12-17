@@ -7,21 +7,19 @@ Grad Dashboard
 @section('content')
     <div align=center>
         <h1>Your Graduation Dashboard</h1>
-        <p>You're almost there!</p></br>
+        <h2>{{  $user->name  }} you're almost there!</h2></br>
     </div>
     <h3>Requirements Remaining</h3>
     <ul>
-            @foreach($courses->requirements as $requirement)
-                <li>{{$requirement->requirement_name}} ({{$requirement->requirement_hours}} credits)</li>
-            @endforeach
-    </ul>
-
-    <h3>Classes Taken</h3>
-    <strong>{{$courses->course_name}}</strong>
-    <ul>
-        @foreach($courses->requirements as $requirement)
-            <li>{{$requirement->requirement_name}}</li>
+        @foreach($requirements as $requirement)
+            <li>{{$requirement->requirement_name}} ({{$requirement->requirement_hours}} credits) ::search::</li>
         @endforeach
     </ul>
 
-    @stop
+    <h3>Completed Courses</h3>
+    <ul>
+        @foreach($userCourses as $userCourse)
+            <li><a href='/courses/{{$userCourse->crn}}'>{{ $userCourse->course_name }}</a></li>
+        @endforeach
+    </ul>
+@stop

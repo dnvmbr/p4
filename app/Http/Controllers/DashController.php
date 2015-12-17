@@ -16,9 +16,16 @@ class DashController extends Controller
     */
     public function getIndex(Request $request)
     {
-        $courses = \App\Course::where('course_name','=','CSCI E-15 Dynamic Web Applications')->with('requirements')->first();
+
+        $userCourses = \App\Course::whereHas('users', function($query)
+        {
+            $query->where('user_id', '=', \Auth::id());
+        })->get();
+        $requirements = \App\Requirement::all();
+        // dd($requirements);
         return view('dash.index')
-        ->with('courses', $courses);
+        ->with('userCourses', $userCourses)
+        ->with('requirements', $requirements);
     }
 
     /**
@@ -86,4 +93,10 @@ class DashController extends Controller
     {
         //
     }
+
+    // public function CreditsRemaining()
+    // {
+    //     $totalHours = $allCourse->requirement_hours - $allCourses->course_hours;
+    //
+    // }
 }

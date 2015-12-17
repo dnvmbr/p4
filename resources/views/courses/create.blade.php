@@ -63,7 +63,7 @@ Create Course
         @endforeach
     </div>
 
-    <button type="submit" class="btn btn-primary">Add book</button>
+    <button type="submit" class="btn btn-primary">Add Course!</button>
 </form>
 
 @stop

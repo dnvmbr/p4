@@ -49,7 +49,7 @@ class CourseController extends Controller
         //       ]
         // );
 
-        # Enter book into the database
+        # Enter course into the database
         $course = new \App\Course();
         $course->course_name = $request->course_name;
         $course->crn = $request->crn;
@@ -60,15 +60,15 @@ class CourseController extends Controller
 
         $course->save();
 
-        // // # Add the tags
-        // if($request->requirements) {
-        //     $requirements = $request->requirement;
-        // }
-        // else {
-        //     $requirements = [];
-        // }
-        // $course->requirements()->sync($requirements);
-        //
+        // // # Add the requirements
+        if($request->requirements) {
+            $requirements = $request->requirement;
+        }
+        else {
+            $requirements = [];
+        }
+        $course->requirements()->attach($requirements);
+
         # Done
         \Session::flash('flash_message','Your book was added!');
         return redirect('/courses');
@@ -95,6 +95,8 @@ class CourseController extends Controller
      */
     public function getShow($title = null)
     {
+        // $course = \App\Course::with('course_id')->find('id');
+        // dd($course);
         return view('courses.show')->with('title', $title);
     }
 

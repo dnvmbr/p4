@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Degree extends Model
 {
     protected $table = 'degrees';
-    public function student() {
+    public function students() {
       return $this->hasMany('\App\Student');
   }
 }

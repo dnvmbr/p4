@@ -47,6 +47,8 @@ Route::get('/debug', function() {
 
 Route::get('/', 'DashController@getIndex');
 Route::get('/courses', 'CourseController@getIndex');
+
+
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/courses/create', 'CourseController@getCreate');
     Route::post('/courses/create', 'CourseController@getPost');
@@ -54,7 +56,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/courses/edit', 'CourseController@getEdit');
     Route::post('/courses/edit', 'CourseController@postEdit');
 });
-Route::get('/courses/show/{title?}', 'CourseController@getShow');
+
+
+Route::get('/courses/{title?}', 'CourseController@getShow');
 
 # Show login form
 Route::get('/login', 'Auth\AuthController@getLogin');
@@ -66,6 +70,8 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('/register', 'Auth\AuthController@getRegister');
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
+
+
 Route::get('/confirm-login-worked', function() {
 
     # You may access the authenticated user via the Auth facade
@@ -79,5 +85,4 @@ Route::get('/confirm-login-worked', function() {
     }
 
     return;
-
 });
