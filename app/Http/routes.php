@@ -45,7 +45,6 @@ Route::get('/debug', function() {
     echo '</pre>';
 });
 
-Route::get('/', 'DashController@getIndex');
 Route::get('/courses', 'CourseController@getIndex');
 
 
@@ -55,34 +54,20 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/courses/edit', 'CourseController@getEdit');
     Route::post('/courses/edit', 'CourseController@postEdit');
+
+    Route::get('/', 'DashController@getIndex');
 });
 
 
 Route::get('/courses/{title?}', 'CourseController@getShow');
 
-# Show login form
+# Login form
 Route::get('/login', 'Auth\AuthController@getLogin');
-# Process login form
 Route::post('/login', 'Auth\AuthController@postLogin');
-# Process logout
+
+# Logout form
 Route::get('/logout', 'Auth\AuthController@getLogout');
-# Show registration form
+
+# Registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
-# Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
-
-
-Route::get('/confirm-login-worked', function() {
-
-    # You may access the authenticated user via the Auth facade
-    $user = Auth::user();
-
-    if($user) {
-        echo 'You are logged in.';
-        dump($user->toArray());
-    } else {
-        echo 'You are not logged in.';
-    }
-
-    return;
-});
