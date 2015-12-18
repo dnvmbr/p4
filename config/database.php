@@ -56,6 +56,7 @@ return [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
             'database'  => env('DB_DATABASE', 'p4'),
+            'unix_socket'   => getenv('UNIX_SOCKET'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'root'),
             'charset'   => 'utf8',

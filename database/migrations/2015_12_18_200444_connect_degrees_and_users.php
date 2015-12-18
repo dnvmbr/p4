@@ -26,7 +26,8 @@ class ConnectDegreesAndUsers extends Migration
     public function down()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->dropForeign('degree_users_id_foreign');
+            $table->dropForeign('users_degree_id_foreign');
+
             $table->dropColumn('degree_id');
         });
     }
