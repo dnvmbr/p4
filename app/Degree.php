@@ -11,4 +11,9 @@ class Degree extends Model
     public function users() {
       return $this->hasMany('\App\User');
   }
+
+  public function requirements() {
+      return $this->belongsToMany('\App\Requirement');
+  }
+
 }

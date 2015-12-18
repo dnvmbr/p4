@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Jill';
         $user->email = 'jill@harvard.edu';
         $user->password = \Hash::make('helloworld');
-        $user->degree_id = $degree_id;
+        $user->degree_id = null;
         $user->save();
 
         $degree_id = 1;
@@ -24,8 +24,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Jamal';
         $user->email = 'jamal@harvard.edu';
         $user->password = \Hash::make('helloworld');
-        $user->degree_id = $degree_id;
+        $user->degree_id = null;
         $user->save();
-
     }
 }

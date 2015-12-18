@@ -14,8 +14,8 @@ class DegreeRequirementTableSeeder extends Seeder
         DB::table('degree_requirement')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'degree_id' => '1',
-            'requirement_id' => '1',
+            'degree_id' => 1,
+            'requirement_id' => 1,
         ]);
 
     }

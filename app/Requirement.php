@@ -8,10 +8,6 @@ class Requirement extends Model
 {
     protected $table = 'requirements';
 
-    public function courses() {
-        return $this->belongsToMany('\App\Course');
-    }
-
     public function getRequirementsForCheckboxes() {
         $requirements = $this->orderBy('requirement_name','ASC')->get();
         $requirementsForCheckboxes = [];
@@ -21,5 +17,11 @@ class Requirement extends Model
         return $requirementsForCheckboxes;
     }
 
+    public function courses() {
+        return $this->belongsToMany('\App\Course');
+    }
+    public function degrees() {
+        return $this->belongsToMany('\App\Requirement');
+    }
 
 }
