@@ -21,14 +21,10 @@ class CreateCourseRequirementTable extends Migration
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
 
             $table->foreign('requirement_id')
                 ->references('id')
                 ->on('requirements')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 
