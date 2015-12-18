@@ -42,7 +42,7 @@ CanResetPasswordContract
     }
 
     public function degrees() {
-        return $this->belongsToMany('\App\Degree')->withTimestamps();
+        return $this->belongsTo('\App\Degree')->withTimestamps();
     }
 
     // boolean on if the user took the course

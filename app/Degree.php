@@ -9,6 +9,6 @@ class Degree extends Model
     protected $table = 'degrees';
 
     public function users() {
-      return $this->belongsToMany('\App\User');
+      return $this->hasMany('\App\User');
   }
 }
