@@ -1,7 +1,7 @@
 <?php
-
+​
 use Illuminate\Database\Seeder;
-
+​
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -11,22 +11,22 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $degree_id = 1;
-        $user = \App\User::firstOrCreate(['email' => 'jill@harvard.edu']);
-        $user->name = 'Jill';
-        $user->email = 'jill@harvard.edu';
-        $user->password = \Hash::make('helloworld');
-        $user->degree_id = $degree_id;
-
-        $user->save();
-
-        $degree_id = 1;
-        $user = \App\User::firstOrCreate(['email' => 'jamal@harvard.edu']);
-        $user->name = 'Jamal';
-        $user->email = 'jamal@harvard.edu';
-        $user->password = \Hash::make('helloworld');
-        $user->degree_id = $degree_id;
-
-        $user->save();
+      DB::table('users')->insert([
+          'name' => 'Jill',
+          'email' => 'jill@harvard.edu',
+          'password' => \Hash::make('helloworld'),
+          'degree_id' => 1,
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+      ]);
+​
+      DB::table('users')->insert([
+          'name' => 'Jamal',
+          'email' => 'jamal@harvard.edu',
+          'password' => \Hash::make('helloworld'),
+          'degree_id' => 1,
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+      ]);
     }
 }
