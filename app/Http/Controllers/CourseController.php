@@ -16,9 +16,7 @@ class CourseController extends Controller
      */
     public function getIndex(Request $request)
     {
-        $courses = \App\Course::where('course_name','=','CSCI E-15 Dynamic Web Applications')->with('requirements')->first();
-        return view('courses.index')
-        ->with('courses', $courses);
+        return view('courses.index');
     }
 
     /**
@@ -52,7 +50,7 @@ class CourseController extends Controller
         # Enter course into the database
         $course = new \App\Course();
         $course->course_name = $request->course_name;
-        $course->crn = $request->crn;
+            $course->crn = $request->crn;
         $course->course_hours = $request->course_hours;
 
         // $course->user_id = \Auth::id(); # <--- NEW LINE
@@ -93,11 +91,10 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getShow($title = null)
+    public function getShow($crn)
     {
-        $thisCourse = \App\Course::where('crn','=',$title);
-        return view('courses.show')->with('title', $title)
-        ->with('thisCourse', $thisCourse);
+        $course = \App\Course::where('crn','=',$crn)->with('requirements')->first();
+        return view('courses.show')->with('course', $course);
     }
 
     /**
@@ -133,4 +130,16 @@ class CourseController extends Controller
     {
         //
     }
+
+    public function getAdded(Request $request) {
+        \Session::flash('flash_message','The course was added to your list!');
+        return redirect('/');
+    }
+    public function getRemoved(Request $request) {
+        \Session::flash('flash_message','The course was removed from your list!');
+        return redirect('/');
+    }
+
+
+
 }

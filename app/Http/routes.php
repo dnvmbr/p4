@@ -55,6 +55,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/courses/edit', 'CourseController@getEdit');
     Route::post('/courses/edit', 'CourseController@postEdit');
 
+    Route::get('/courses/{title?}/add', 'CourseController@getAdded');
+    Route::get('/courses/{title?}/remove', 'CourseController@getRemoved');
+
+
     Route::get('/', 'DashController@getIndex');
 });
 
@@ -71,3 +75,30 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 # Registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
+
+
+Route::get('/test',function(){
+
+    // $course_id = \App\Course::find(1)->pluck('id');
+    // $courses_taken =  \Auth::user()->courses()->get();
+    // dump($courses_taken);
+    // dump($course_id);
+    // foreach($courses_taken as $course) {
+    //     if ($course_id == $course->id) {
+    //         dump(true);
+    //     }
+    // }
+
+    // public function tookCourse($course_id) {
+    //     $course_id = \App\Course::find($course_id)->id;
+    //     $courses_taken =  \Auth::user()->courses()->toArray();
+    //     foreach($courses_taken as $course) {
+    //         if ($course_id == $course['id']) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    // Add Comment
+    // dump($course);
+});

@@ -16,10 +16,19 @@ class Course extends Model
         foreach($courses as $course) {
             $coursesForCheckboxes[$course['id']] = $course;
         }
-
         return $coursesForCheckboxes;
-
     }
+
+
+    
+    // public function getAddRemove() {
+    //     if (course id = course id on course_user pivot  )
+    //             <button type="submit" class="btn btn-warning">Remove from Completed!</button>
+    //              when clicked, remove from pivot
+    //     else {
+    //         <button type="submit" class="btn btn-warning">Remove from Completed!</button> > when clicked,                                        add to pivot
+    //     }
+    // }
 
     public function requirements() {
         return $this->belongsToMany('\App\Requirement');

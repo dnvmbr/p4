@@ -45,4 +45,17 @@ CanResetPasswordContract
         return $this->belongsToMany('\App\Degree')->withTimestamps();
     }
 
+    // boolean on if the user took the course
+    public function tookCourse($course_id) {
+        // $course_id = \App\Course::find($course_id)->pluck('id');
+        $courses_taken =  \Auth::user()->courses()->get();
+        foreach($courses_taken as $course) {
+            if ($course_id == $course->id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
