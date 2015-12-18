@@ -6,8 +6,7 @@ Grad Dashboard
 
 @section('content')
 <div align=center>
-    <h1>Your Graduation Dashboard</h1>
-    <h2>{{  $user->name  }} you're almost there!</h2></br>
+    <h2>{{  $user->name  }}'s Dashboard</h2></br>
 </div>
 <div class="row">
     <div class="col-md-3">

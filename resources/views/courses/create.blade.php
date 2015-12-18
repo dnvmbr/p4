@@ -16,11 +16,11 @@ Create Course
 
 <form method='POST' action='/courses/create'>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <input type='hidden' value='{{ csrf_token() }}' name='_token'>
 
             <div class='form-group'>
-                <label>Course Name:</label>
+                <label><strong>* Course Name:</strong></label>
                 <input
                 type='text'
                 id='course_name'
@@ -30,7 +30,7 @@ Create Course
             </div>
 
             <div class='form-group'>
-                <label for='CRN'>CRN (5 Digits): </label>
+                <label for='CRN'><strong>* CRN (5 Digits): </strong></label>
                 <input
                 type='text'
                 id='crn'
@@ -41,13 +41,13 @@ Create Course
 
             <div class='form-group'>
                 <label for='course_hours'>Credit Hours: </label>
-                <label><input type="radio" name="course_hours" value="2"> 2  </label>
+                <label><input type="radio" name="course_hours" value="2"> 2 </label>
 
-                <label><input type="radio" name="course_hours" value="4" checked> 4 </label>
+                <label><input type="radio" name="course_hours" value="4" checked> 4</label>
             </div>
 
             <div class='form-group'>
-                <label for='title'>URL Course Site: </label>
+                <label for='title'><strong>URL Course Site: </strong></label>
                 <input
                 type='text'
                 id='course_link'
@@ -57,9 +57,9 @@ Create Course
             </div>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class='form-group'>
-                <bold>Requirements</bold></br>
+                <strong>* Requirements</strong></br>
                 @foreach($requirements_for_checkbox as $requirement_id => $requirement)
                 <label><input type='checkbox' name='requirements[]' value='{{$requirement_id}}'> {{ $requirement['requirement_name'] }}</label><br>
                 @endforeach

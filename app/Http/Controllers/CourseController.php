@@ -74,16 +74,6 @@ class CourseController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -97,46 +87,12 @@ class CourseController extends Controller
         return view('courses.show')->with('course', $course);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function getAdded($crn) {
         $course_id = \App\Course::where('crn','=',$crn)->first()->id;
         $user = \Auth::user();
         $user->courses()->attach($course_id);
         \Session::flash('flash_message','The course was added to your list!');
-        return redirect('/');
+        return redirect()->back();;
     }
     public function getRemoved($crn) {
         $course_id = \App\Course::where('crn','=',$crn)->first()->id;
@@ -144,7 +100,7 @@ class CourseController extends Controller
         $user->courses()->detach($course_id);
 
         \Session::flash('flash_message','The course was removed from your list!');
-        return redirect('/');
+        return redirect()->back();
     }
 
 
