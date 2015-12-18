@@ -41,7 +41,7 @@ CanResetPasswordContract
         return $this->belongsToMany('\App\Course')->withTimestamps();
     }
 
-    public function degrees() {
+    public function degree() {
         return $this->belongsTo('\App\Degree')->withTimestamps();
     }
 

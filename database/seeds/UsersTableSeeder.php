@@ -19,10 +19,12 @@ class UsersTableSeeder extends Seeder
         $user->degree_id = $degree_id;
         $user->save();
 
+        $degree_id = 1;
         $user = \App\User::firstOrCreate(['email' => 'jamal@harvard.edu']);
         $user->name = 'Jamal';
         $user->email = 'jamal@harvard.edu';
         $user->password = \Hash::make('helloworld');
+        $user->degree_id = $degree_id;
         $user->save();
 
     }
