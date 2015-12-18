@@ -20,15 +20,6 @@ class Course extends Model
     }
 
 
-    
-    // public function getAddRemove() {
-    //     if (course id = course id on course_user pivot  )
-    //             <button type="submit" class="btn btn-warning">Remove from Completed!</button>
-    //              when clicked, remove from pivot
-    //     else {
-    //         <button type="submit" class="btn btn-warning">Remove from Completed!</button> > when clicked,                                        add to pivot
-    //     }
-    // }
 
     public function requirements() {
         return $this->belongsToMany('\App\Requirement');
@@ -36,5 +27,4 @@ class Course extends Model
     public function users() {
         return $this->belongsToMany('\App\User')->withTimestamps();
     }
-
 }

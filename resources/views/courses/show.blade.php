@@ -8,7 +8,7 @@
 @section('content')
         <h1>Course Name: {{ $course->course_name }}</h1>
         @if($user->tookCourse($course['id']))
-        <a href="/courses/{{ $course['crn'] }}/removefromuser">   Remove from taken courses</a>
+        <a href="/courses/{{ $course['crn'] }}/remove">Remove from taken courses</a>
         @endif
         @if(!$user->tookCourse($course['id']))
         <a href="/courses/{{ $course['crn'] }}/add">   Add to taken courses!</a>
