@@ -39,6 +39,34 @@ class CoursesTableSeeder extends Seeder
             'crn' => '34567',
             'course_hours' => '4',
         ]);
+        DB::table('courses')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'course_name' => 'CSCI E-3: Introduction to Web Programming Using JavaScript',
+            'crn' => '24095',
+            'course_hours' => '4',
+        ]);
+        DB::table('courses')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'course_name' => 'CSCI E-7: Introduction to Programming with Python',
+            'crn' => '24555',
+            'course_hours' => '4',
+        ]);
+        DB::table('courses')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'course_name' => 'CSCI E-8: Web GIS: Technologies and Applications',
+            'crn' => '24031',
+            'course_hours' => '4',
+        ]);
+        DB::table('courses')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'course_name' => 'CSCI E-10A: Introduction to Computer Science Using Java I',
+            'crn' => '14289',
+            'course_hours' => '4',
+        ]);
 
 
     }

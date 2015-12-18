@@ -6,15 +6,14 @@
 @stop
 
 @section('content')
-        <h1>Course Name: {{ $course->course_name }}</h1>
+    <div class=shower>
+        <h1>{{ $course->course_name }}</h1>
         @if($user->tookCourse($course['id']))
         <a href="/courses/{{ $course['crn'] }}/remove">Remove from taken courses</a>
         @endif
         @if(!$user->tookCourse($course['id']))
         <a href="/courses/{{ $course['crn'] }}/add">   Add to taken courses!</a>
         @endif
-
-        <h3>Harvard Page: </h3>
         <div>
             <h3>Requirements</h3>
             <ul>
@@ -23,5 +22,10 @@
                 @endforeach
             </ul>
         </div>
+        @if($course->harvard_url)
+            <h3><a href='{{$course->harvard_url}}'>Link to HarvardExt's page</a></h3>
+        @endif
+
+    </div>
 
 @stop

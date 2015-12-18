@@ -15,7 +15,6 @@ html {
 body {
     margin:0 0 100px; /* bottom = footer height */
     font-family: Bariol;
-
 }
 
 footer {
@@ -31,18 +30,36 @@ footer {
 /* End Sticky Footer */
 
 
-section, header, nav {
-    padding-left:25px;
-    padding-top:25px;
-}
-
 header, nav, body {
     text-align: center;
 }
 
+nav {
+    padding-top: 15px;
+}
+
 section {
     text-align: left;
-    padding-left: 10%;
+    /*padding-left: 10%;*/
+}
+
+.row {
+margin: auto;
+width: 80%;
+border: 1px solid;}
+
+.courses {
+    margin: auto;
+    width: 80%;
+}
+
+.shower {
+    margin: auto;
+    width: 75%;
+}
+
+.error{
+    color: red;
 }
 /*----------------------------------------------------
 Flash message

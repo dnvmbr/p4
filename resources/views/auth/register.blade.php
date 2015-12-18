@@ -37,6 +37,12 @@
             <input type='password' name='password_confirmation' id='password_confirmation'>
         </div>
 
+        <div class='form-group'>
+            <label for='degree'>Degree:
+        <input type='radio' name='degree' id='degree' value='Computer Science' checked> Computer Science</label>
+        </div>
+
+
         <button type='submit' class='btn btn-primary'>Register</button>
 
     </form>
