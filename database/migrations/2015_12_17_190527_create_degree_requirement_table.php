@@ -20,11 +20,11 @@ class CreateDegreeRequirementTable extends Migration
 
             $table->foreign('degree_id')
                 ->references('id')
-                ->on('degrees')
+                ->on('degrees');
 
             $table->foreign('requirement_id')
                 ->references('id')
-                ->on('requirements')
+                ->on('requirements');
         });
     }
 

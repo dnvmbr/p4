@@ -20,11 +20,11 @@ class CreateCourseRequirementTable extends Migration
 
             $table->foreign('course_id')
                 ->references('id')
-                ->on('courses')
+                ->on('courses');
 
             $table->foreign('requirement_id')
                 ->references('id')
-                ->on('requirements')
+                ->on('requirements');
         });
     }
 
