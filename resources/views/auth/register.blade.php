@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+<div class=courses>
     <p>Already have an account? <a href='/login'>Login here...</a></p>
 
     <h1>Register</h1>
@@ -46,5 +46,5 @@
         <button type='submit' class='btn btn-primary'>Register</button>
 
     </form>
-
+</div>
 @stop
