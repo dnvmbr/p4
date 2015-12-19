@@ -75,39 +75,3 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 # Registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
-
-
-Route::get('/test',function(){
-    // $userCourses = \App\Course::whereHas('users', function($query)
-    // {
-    //     $query->where('user_id', '=', \Auth::id());
-    // })->get();
-    // $requirements = \App\Requirement::all();
-    //
-    // $satisfied_requirements = []; // array to keep track of satisfied requirements
-    // $count = 0;
-    // $total_hours_for_this_requirement = null;
-    // $hours_completed = 0;
-    // $reamaining_hours = 0;
-    //
-    //
-    // foreach ($userCourses as $userCourse) {
-    //     $course = \App\Course::where('id','=',$userCourse->id)->with('requirements')->first();
-    //     foreach($course->requirements as $requirement){
-    //         $satisfied_requirements[$count]['requirement_name'] = $requirement->requirement_name;
-    //         $satisfied_requirements[$count]['course_hours'] = $course->course_hours;
-    //         $satisfied_requirements[$count]['course_id'] = $course->id;
-    //         $count++;
-    //     }
-    // }
-    //
-    // foreach ($requirements as $requirement) {
-    //
-    //     $find = array_search($requirement->requirement_name, $satisfied_requirements);
-    //     $hours_completed = $satisfied_requirements[$find]['course_hours'];
-    //     $total_hours_for_this_requirement = $requirement->requirement_hours;
-    //     $reamaining_hours = $total_hours_for_this_requirement - $hours_completed;
-    // }
-    // dump($satisfied_requirements);
-
-});

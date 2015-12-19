@@ -13,7 +13,11 @@ Grad Dashboard
             <h3>Requirements Remaining</h3>
             <ul>
                 @foreach($requirements as $requirement)
-                <li>{{$requirement->requirement_name}} ({{$requirement->requirement_hours}} credits)</li>
+                    @if($requirement->remaining_hours <= 0)
+                        <li><strike>{{$requirement->requirement_name}} ({{$requirement->remaining_hours}} credits)</strike></li>
+                    @else
+                        <li>{{$requirement->requirement_name}} ({{$requirement->remaining_hours}} credits)</li>
+                    @endif
                 @endforeach
             </ul>
         </div>
