@@ -15,7 +15,6 @@ class UsersTableSeeder extends Seeder
             'name' => 'Jill',
             'email' => 'jill@harvard.edu',
             'password' => \Hash::make('helloworld'),
-            'degree_id' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
         ]);
@@ -24,7 +23,6 @@ class UsersTableSeeder extends Seeder
             'name' => 'Jamal',
             'email' => 'jamal@harvard.edu',
             'password' => \Hash::make('helloworld'),
-            'degree_id' => 1,
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
         ]);

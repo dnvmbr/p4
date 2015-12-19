@@ -55,7 +55,6 @@ class CourseController extends Controller
     $course->course_name = $request->course_name;
     $course->crn = $request->crn;
     $course->course_hours = $request->course_hours;
-    // $course->user_id = \Auth::user()->id; # <--- NEW LINE
     $course->harvard_url = $request->harvard_url;
 
     $course->save();
@@ -70,7 +69,7 @@ class CourseController extends Controller
     $course->requirements()->attach($requirements);
 
     # Done
-    \Session::flash('flash_message','Your course was added!');
+    \Session::flash('flash_message','Your course was added, please select it for your completed courses!');
     return redirect('/courses');
 }
 
